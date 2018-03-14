@@ -1,0 +1,31 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width" />
+      <style>
+       body {
+        margin: 2em auto;
+        max-width: 40em;
+       }
+      </style>
+      {% if meta %}
+      <title>{{ meta.title }}</title>
+      {% else %}
+      <title>Posts page</title>
+      {% endif %}
+    </head>
+    <body>
+      {% if meta %}
+      <h1>{{ meta.title }}</h1>
+      <div class="date">
+       {{ meta.date }} 
+      </div>
+      <div class="body">
+       {{ md_text | markdown | safe }} 
+      </div>
+      {% else %}
+      <h1>Posts page</h1>
+      {% endif %}
+    </body>
+  </html>
